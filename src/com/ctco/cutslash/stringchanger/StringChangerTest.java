@@ -1,16 +1,22 @@
 package com.ctco.cutslash.stringchanger;
 
+import org.junit.Test;
+
 import static junit.framework.Assert.assertEquals;
 
 public class StringChangerTest {
-    String input ;
-    String actual= "abcdef";
+
+    String input;
+    String actual;
+    String expected = "abcdef";
     StringChanger stringChanger = new StringChanger();
 
-    @org.junit.Test
-    public void testRemoveExcessiveSlashes() throws Exception {
+    @Test
+    public void test() throws Exception {
         input = "abcdef";
-        stringChanger.removeExcessiveSlashes(input);
-        assertEquals(input,actual);
+        actual = stringChanger.removeExcessiveSlashes(input);
+        assertEquals(actual, expected);
     }
+
+
 }
