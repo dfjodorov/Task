@@ -1,5 +1,7 @@
-package com.ctco.cutslash.stringchanger;
+package com.ctco.cutslash;
 
+
+import com.ctco.cutslash.stringchanger.StringChanger;
 
 public class Main {
     public static void main(String[] args) {
