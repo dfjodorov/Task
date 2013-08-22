@@ -7,34 +7,34 @@ import static junit.framework.Assert.assertEquals;
 
 public class StringChangerTest {
 
-    String input;
-    String actual;
-    String valid = "abcdef";
-    StringChanger stringChanger = new StringChanger();
+    private String input;
+    private String actual;
+    final String VALID = "abcdef";
+    private StringChanger stringChanger = new StringChanger();
 
     @Test
-    public void shouldReturnAValidStringIfPassedASimpleString() throws Exception {
+    public void shouldReturnAValidStringIfPassedASimpleString(){
         input = "abcdef";
         actual = stringChanger.removeExcessiveSlashes(input);
-        assertEquals(actual, valid);
+        assertEquals(actual, VALID);
     }
 
     @Test
-    public void shouldReturnAValidStringIfPassedAStringWithItemToRemove() throws Exception {
+    public void shouldReturnAValidStringIfPassedAStringWithItemToRemove(){
         input = "abcd\\\nef";
         actual = stringChanger.removeExcessiveSlashes(input);
-        assertEquals(actual, valid);
+        assertEquals(actual, VALID);
     }
 
     @Test
-    public void shouldReturnAValidStringIfPassedAStringWithItemsToRemove() throws Exception {
+    public void shouldReturnAValidStringIfPassedAStringWithItemsToRemove() {
         input = "ab\\\ncd\\\nef";
         actual = stringChanger.removeExcessiveSlashes(input);
-        assertEquals(actual, valid);
+        assertEquals(actual, VALID);
     }
 
     @Test
-    public void shouldNotChangeStringWrongOrder() throws Exception {
+    public void shouldNotChangeStringWrongOrder(){
         input ="abc\n\\def";
         actual = stringChanger.removeExcessiveSlashes(input);
         assertEquals(input,actual);
@@ -42,24 +42,23 @@ public class StringChangerTest {
     }
 
     @Test
-    public void shouldNotChangeStringOnlyTwoSlashes() throws Exception {
+    public void shouldNotChangeStringOnlyTwoSlashes(){
         input ="abc\\def";
         actual = stringChanger.removeExcessiveSlashes(input);
         assertEquals(input,actual);
     }
 
     @Test
-    public void shouldNotChangeStringNoSlash() throws Exception {
+    public void shouldNotChangeStringNoSlash()  {
         input ="abc\ndef";
         actual = stringChanger.removeExcessiveSlashes(input);
         assertEquals(input,actual);
     }
 
     @Test
-    public void shouldRemoveOnlyOneRemovableCombination() throws Exception {
+    public void shouldRemoveOnlyOneRemovableCombination()  {
         input ="abc\\\\\\\\\\\\ndef";
         actual = stringChanger.removeExcessiveSlashes(input);
         assertEquals(input,actual);
     }
-
 }

@@ -6,4 +6,6 @@
 *.ear
 
 # Idea          #
- /.idea
+.idea/*
+out/*
+*.iml
